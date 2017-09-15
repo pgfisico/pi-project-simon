@@ -32,7 +32,7 @@ red_button.when_released = button_released
 
 It is important to **reference the functions, but not call them** when configuring the GPIO library. You refer to the function by using it's name alone, without any parentheses or arguments. If you call the function, the GPIO library will be configured to run the _return value_ of the function when the button is pressed or released. This might cause an error when this line of your program runs, or your program may work without any errors, but it will not behave how you expect it to.
 
-Once correctly configured, the GPIO library will call the `button_pressed` and `button_released` functions with the button that was pressed as the argument when a button is pressed or released, respectively. For example, if the red button was pressed, `button_pressed` would run, and the value of it's argument would be equal to `red_button`.
+When correctly configured, the GPIO library will call the `button_pressed` and `button_released` functions with the button that was pressed as the argument whenever a button is pressed or released, respectively. For example, if the red button was pressed, `button_pressed` would run, and the value of it's argument would be equal to `red_button`.
 
 ## Responding to Button Presses
 
@@ -47,9 +47,9 @@ When a button is released, the `button_released` function should
 
 1. Turn off the LED corresponding to the button that was released
 
-In order to identify what colour a button corresponds to, create a function named `get_colour_for_button` below the `get_led_for_colour` function that requires a single argument named `button`. This function will take a button as an argument and return the integer colour value that the button corresponds to. Remember that you defined the colour values when writing the pattern code.
+In order to identify what colour a button corresponds to, create a function named `get_colour_for_button`, below the `get_led_for_colour` function, that requires a single argument named `button`. This function will take a button as an argument and return the integer colour value that the button corresponds to. Remember that you defined the colour values when writing the pattern code.
 
-Using the `get_colour_for_button` and `get_led_for_colour` functions, make `button_pressed` and `button_released` turn the corresponding LED on and off as described above. Don't worry about checking if the button matches the pattern yet, that is included in the next step.
+After implementing the `get_colour_for_button` function, use the `get_colour_for_button` and `get_led_for_colour` functions to make `button_pressed` and `button_released` turn the corresponding LED on and off as described above. Don't worry about checking if the button matches the pattern yet. This is included in a later step.
 
 ## Testing
 

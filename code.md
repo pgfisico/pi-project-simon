@@ -4,7 +4,7 @@
 
 First create a new Python script named `simon.py`.
 
-At the top of the file, import `LED` from the GPIO module. Then, setup your LEDs with the pin numbers that you connected them to when building your circuit.
+At the top of the file, import `LED` from the GPIO module. Below the import, setup your LEDs with the pin numbers that you connected them to when building your circuit.
 
 ```py
 from gpiozero import LED
@@ -17,13 +17,15 @@ green_led = # Setup based on your circuit
 
 ## The Pattern
 
-Start by creating an empty list to store the pattern, below where you setup the LEDs.
+Start by creating an empty list to store the pattern. Add the following line below where you setup the LEDs.
 
 ```py
 pattern = []
 ```
 
-The items in the pattern list will need to correspond to a specific colour. In order to make it easier to pick a random colour, let's use a number to represent each colour. This will allow you to use the `random` module in Python to pick a colour. In order to keep colours consistent throughout the program, add some constants above `pattern`.
+The items in the pattern list will need to correspond to a specific colour. In order to make it easier to pick a random colour, use a number to represent each colour. Using numbers allows you to pick a random colour using the `random` module in Python. The `random` module can be used to pick a random number, and you can use the numerical representations of the colours to turn the random number into a random colour.
+
+In order to keep colours consistent throughout the program, add some constants above `pattern`. These will be the numbers you use to represent each colour in your program.
 
 ```py
 RED = 1
@@ -32,8 +34,9 @@ YELLOW = 3
 GREEN = 4
 ```
 
-Next, create a function named `add_to_pattern` which requires no arguments below `pattern`. This function will add a random colour to the end of `pattern`.  
-To implement this function, you will need to know how to add to the end of a list. To do this, use the list's `append` function. For example, the following would add the number `7` to the end of `pattern`.
+Next, create a function named `add_to_pattern` which requires no arguments below `pattern`. This function will add a random colour to the end of `pattern`.
+
+To implement this function, you will need to know how to add to the end of a list. To add to the end of a list, use the list's `append` function. For example, the following would add the number `7` to the end of `pattern`.
 
 ```py
 pattern.append(7)
@@ -51,11 +54,13 @@ The `randint` function can be used to generate a random integer. The random modu
 >
 > Return a random integer `N` such that `a <= N <= b`. Alias for `randrange(a, b + 1)`.
 
-You will need to pick values of `a` and `b` that ensure the random integer matches one of the colour constants created earlier.
+You will need to pick values of `a` and `b` that ensure the random integer that `randint` returns matches one of the colour constants created earlier.
+
+Now that you know how to add to the end of a list and generate random numbers, implement the `add_to_pattern` function.
 
 ## Lighting the LEDs in a Pattern
 
-Now that you have code that allows you to create a random pattern, you will need code to play the pattern on the LEDs.
+After writing the code to create a random pattern, you will need code to play the pattern on the LEDs.
 
 Below the `add_to_pattern` function, create a function named `play_pattern` which requires no arguments. This function should go through all of the colours in `pattern`, in order, and for each colour
 
@@ -70,6 +75,8 @@ from time import sleep
 ```
 
 In order to write the `play_pattern` function, you will need a way to know which LED to turn on. Above the `add_to_pattern` function, create a function named `get_led_for_colour` that requires a single argument named `colour`. This function will take the integer colour value from the pattern as an argument and return the corresponding LED. You will need to use the colour constants and LEDs you setup earlier to implement this function.
+
+Implement both the `get_led_for_colour` and `play_pattern` functions as outlined above.
 
 ## Testing
 
