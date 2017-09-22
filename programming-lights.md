@@ -2,7 +2,7 @@
 
 ## Setup
 
-First create a new Python script named `simon.py`.
+Create a new Python script named `simon.py`.
 
 At the top of the file, import `LED` from the GPIO module. Below the import, setup your LEDs with the pin numbers that you connected them to when building your circuit.
 
