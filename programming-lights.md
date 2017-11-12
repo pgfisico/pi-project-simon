@@ -65,7 +65,7 @@ Now that you know how to add to the end of a list and generate random numbers, i
 
 ## Lighting the LEDs in a Pattern
 
-### Picking the right LED for each Colour
+### Identifying the LED for each Colour
 
 In order to play the pattern on the LEDs, you will need a way to know which LED to turn on for each numeric value in `pattern`. To do this, copy the incomplete `get_led_for_colour` function below the `add_to_pattern` function.
 
@@ -80,11 +80,7 @@ Implement the `get_led_for_colour` function, making sure it will work for all fo
 
 ### Lighting the LEDs
 
-**TODO BELOW**
-
-We now
-
-Below the `add_to_pattern` function, copy the incomplete `play_pattern` function from below. This function requires no arguments and will not return anything.
+In order to play the randomly generated pattern on the LEDs, copy the incomplete `play_pattern` function below the `add_to_pattern` function. The `play_pattern` function requires no arguments and will not return anything.
 
 ```py
 def play_pattern():
@@ -103,21 +99,15 @@ The `play_pattern` function should go through all of the colours in the `pattern
 
 The incomplete version of the function above already contains a loop which goes through every colour in the pattern. You must add code inside the loop to turn the appropriate LED on and off.
 
-In order to determine which LED corresponds to the numerical colour value, 
+To determine which LED corresponds to the numerical colour value, use the `get_led_for_colour` function you implemented earlier.
 
-
-
-In order to follow these timings, recall the `sleep` function from the `time` module. To use it, add the following import to the top of your file.
+To follow the LED on and off timings, recall the `sleep` function from the `time` module. To use it, add the following import to the top of your file.
 
 ```py
 from time import sleep
 ```
 
-
-
-
-
-Implement both the `get_led_for_colour` and `play_pattern` functions as outlined above.
+Implement the `play_pattern` function as outlined above.
 
 ## Testing
 
@@ -133,4 +123,3 @@ while True:
 Run your program and make sure that the LEDs are flashing in a pattern, and that each time the pattern plays it has a new colour at the end. If the LEDs don't do what you expect them to, there may be a problem in your circuit or code. Identify and fix any problems, then run your program again to check if the problem has been fixed.
 
 Delete this test code once you know the LEDs are working correctly.
-

@@ -11,19 +11,27 @@ from gpiozero import Button, LED
 Near the top of your file, after you setup the LEDs and before the colour constants, setup your buttons with the pin numbers that you connected them to when building your circuit.
 
 ```py
-# TODO Test to see if necessary to use bounce_time kwarg - May need to calibrate the timing in the Testing section
-
-red_button = Button(25) # Change the pin number to match your circuit
-blue_button = # Setup based on your circuit
-yellow_button = # Setup based on your circuit
-green_button = # Setup based on your circuit
+red_button = Button(0) # Change the pin number to match your circuit
+blue_button = Button(0) # Change the pin number to match your circuit
+yellow_button = Button(0) # Change the pin number to match your circuit
+green_button = Button(0) # Change the pin number to match your circuit
 ```
 
 ## Running Code when the Buttons are Pressed
 
-In order to run code when the buttons are pressed, below the `play_pattern` function, create two functions named `button_pressed` and `button_released` which require a single argument named `button`. These functions will take the button that was pressed as an argument and will not return anything.
+In order to run code when the buttons are pressed, copy the incomplete `button_pressed` and `button_released` functions below the `play_pattern` function.
 
-To run these functions whenever the buttons are pressed and released, configure the GPIO library to call them. Below the `button_pressed` and `button_released` functions, add the following code **for each button**. For example, to configure the red button, use the following code.
+```py
+def button_pressed(button):
+    # Code to respond to buttons being pressed goes here
+```
+
+```py
+def button_released(button):
+    # Code to respond to buttons being released goes here
+```
+
+Both of these functions require a single argument named `button` and will not return anything. To run these functions whenever the buttons are pressed and released, configure the GPIO library to call them. Below the `button_pressed` and `button_released` functions, add the following code **for each button**. For example, to configure the red button, use the following code.
 
 ```py
 red_button.when_pressed = button_pressed
@@ -36,7 +44,22 @@ When correctly configured, the GPIO library will call the `button_pressed` and `
 
 ## Responding to Button Presses
 
-To respond to button presses, you must implement the `button_pressed` and `button_released` functions you created earlier.
+### Identifying the Button for each Colour
+
+In order to identify what colour a button corresponds to, copy the incomplete `get_colour_for_button` below the `get_led_for_colour` function.
+
+```py
+def get_colour_for_button(button):
+    # Code to return the colour for each button goes here
+```
+
+The `get_colour_for_button` requires a single argument named `button`. This function will take a button as an argument and return the integer colour value that the button corresponds to.
+
+Implement the `get_colour_for_button` function. Remember that you defined the colour values when writing the pattern code.
+
+### Lighting the LEDs
+
+To respond to button presses, you must implement the incomplete `button_pressed` and `button_released` functions you created earlier.
 
 When a button is pressed, the `button_pressed` function should
 
@@ -47,9 +70,7 @@ When a button is released, the `button_released` function should
 
 1. Turn off the LED corresponding to the button that was released
 
-In order to identify what colour a button corresponds to, create a function named `get_colour_for_button`, below the `get_led_for_colour` function, that requires a single argument named `button`. This function will take a button as an argument and return the integer colour value that the button corresponds to. Remember that you defined the colour values when writing the pattern code.
-
-After implementing the `get_colour_for_button` function, use the `get_colour_for_button` and `get_led_for_colour` functions to make `button_pressed` and `button_released` turn the corresponding LED on and off as described above. Don't worry about checking if the button matches the pattern yet. This is included in a later step.
+Make `button_pressed` and `button_released` turn the corresponding LED on and off as described above. Don't worry about checking if the button matches the pattern yet; this is included in a later step.
 
 ## Testing
 
@@ -63,4 +84,3 @@ while True:
 Run your program and make sure that the corresponding LED lights up whenever you press the button, and goes out when you release it. Make sure to test all four buttons. If the buttons don't do what you expect them to, there may be a problem in your circuit or code. Identify and fix any problems, then run your program again to check if the problem has been fixed.
 
 Delete this test code once you know the buttons are working correctly.
-
