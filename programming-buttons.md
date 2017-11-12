@@ -11,10 +11,10 @@ from gpiozero import Button, LED
 Near the top of your file, after you setup the LEDs and before the colour constants, setup your buttons with the pin numbers that you connected them to when building your circuit.
 
 ```py
-red_button = Button(0) # Change the pin number to match your circuit
-blue_button = Button(0) # Change the pin number to match your circuit
-yellow_button = Button(0) # Change the pin number to match your circuit
-green_button = Button(0) # Change the pin number to match your circuit
+red_button = Button(-1) # Change the pin number to match your circuit
+blue_button = # Setup based on your circuit
+yellow_button = # Setup based on your circuit
+green_button = # Setup based on your circuit
 ```
 
 ## Running Code when the Buttons are Pressed

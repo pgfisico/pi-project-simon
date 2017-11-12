@@ -9,10 +9,10 @@ At the top of the file, import `LED` from the GPIO module. Below the import, set
 ```py
 from gpiozero import LED
 
-red_led = LED(0) # Change the pin number to match your circuit
-blue_led = LED(0) # Change the pin number to match your circuit
-yellow_led = LED(0) # Change the pin number to match your circuit
-green_led = LED(0) # Change the pin number to match your circuit
+red_led = LED(-1) # Change the pin number to match your circuit
+blue_led = # Setup based on your circuit
+yellow_led = # Setup based on your circuit
+green_led = # Setup based on your circuit
 ```
 
 ## The Pattern
