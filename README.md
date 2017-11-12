@@ -14,7 +14,7 @@ The game you will build in this project will only include lights and buttons. Th
   * One Blue
   * One Yellow
   * One Green
-* Resistors for connecting LEDs
+* Four One 1K&Omega; Resistors
 * Hookup Wire
 
 
