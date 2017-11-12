@@ -76,6 +76,13 @@ def get_led_for_colour(colour):
 
 The `get_led_for_colour` requires a single argument named `colour` and will return the LED that corresponds to that colour. The `colour` argument will be a number equal to one of the colour constants you added earlier. The function should return the corresponding LED. For example, if `colour` is equal to `RED`, the function should return `red_led`.
 
+To return a value from a function, use the `return` keyword. For example, the following function always returns 12.
+
+```py
+def get_number():
+    return 12
+```
+
 Implement the `get_led_for_colour` function, making sure it will work for all four colours.
 
 ### Lighting the LEDs
